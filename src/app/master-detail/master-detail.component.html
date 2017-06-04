@@ -1,0 +1,26 @@
+<div id="menu">
+  <p-dataTable [value]="inputData" selectionMode="single" [(selection)]="selectedItem" >   
+      <p-column field="master"  [header]="masterTitle"></p-column>
+</p-dataTable>
+</div>
+
+<div id="header">
+<ng-content></ng-content>
+</div>
+
+<div id="content">
+  <div class="ui-widget-header" style="padding:4px 10px;border-bottom: 0 none">
+    <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+    <input #gb type="text" pInputText size="50" placeholder="關鍵字搜尋">
+  </div>
+  <p-dataTable [value]="selectedItem?.detail" [globalFilter]="gb" #dt [(selection)]="selectedDetail" [responsive]="true">
+     <p-column styleClass="col-button" [style]="{'width':'50px'}">
+      <ng-template let-col="rowData" pTemplate="body">
+        <button type="button" pButton (click)="deleteItem()" icon="fa-times"></button>
+      </ng-template>
+    </p-column>
+    <p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header" ></p-column>
+    <p-column [style]="{'width':'38px'}" [selectionMode]="detailSelectMod"></p-column>
+  </p-dataTable>
+  {{selectedDetail}}
+</div>
