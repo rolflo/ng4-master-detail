@@ -1,5 +1,10 @@
 <div id="menu">
-  <p-dataTable [value]="inputData" selectionMode="single" [(selection)]="selectedItem" >   
+  <p-dataTable [(value)]="inputData" selectionMode="single" [(selection)]="selectedItem" [responsive]="true">   
+      <p-column styleClass="col-button" [style]="{'width':'50px'}">
+      <ng-template let-car="rowData" pTemplate="body">
+        <button type="button" pButton (click)="removeMaster(car)" icon="fa-times" class="ui-button-warning"></button>
+      </ng-template>
+    </p-column>
       <p-column field="master"  [header]="masterTitle"></p-column>
 </p-dataTable>
 </div>
@@ -15,12 +20,13 @@
   </div>
   <p-dataTable [value]="selectedItem?.detail" [globalFilter]="gb" #dt [(selection)]="selectedDetail" [responsive]="true">
      <p-column styleClass="col-button" [style]="{'width':'50px'}">
-      <ng-template let-col="rowData" pTemplate="body">
-        <button type="button" pButton (click)="deleteItem()" icon="fa-times"></button>
+      <ng-template let-car="rowData" pTemplate="body">
+        <button type="button" pButton (click)="removeDetail(car)" icon="fa-times" class="ui-button-warning"></button>
       </ng-template>
     </p-column>
     <p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header" ></p-column>
     <p-column [style]="{'width':'38px'}" [selectionMode]="detailSelectMod"></p-column>
   </p-dataTable>
+ 
   {{selectedDetail}}
 </div>
