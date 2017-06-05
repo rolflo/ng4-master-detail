@@ -2,9 +2,30 @@
      <button type="button" pButton icon="fa-plus" style="float:left" (click)="addMaster()" label="AddMaster"></button>
      <button type="button" pButton icon="fa-plus" style="float:left" (click)="addDetail()" label="AddDetail"></button>
 </div>
-<app-master-detail></app-master-detail>
+<app-master-detail #md
+    [masterTitle]="masterTitle"
+    [inputData]="inputData"
+    [cols]="cols"
+    [detailSelectMod]="detailSelectMod"
+    (onSelectedDetail)="selectedDetail($event)"
+></app-master-detail>
 
-<p-dialog header="Car Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true">
+<p-dialog header="Add Master" [(visible)]="displayDialogMaster" [responsive]="true" showEffect="fade" [modal]="true">
+    <div class="ui-grid ui-grid-responsive ui-fluid">
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-4"><label for="masterName">MasterName </label></div>
+            <div class="ui-grid-col-8"><input pInputText id="masterName" [(ngModel)]="masterName" /></div>
+        </div>
+    </div>
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+            <button type="button" pButton icon="fa-close" (click)="closeMaster()" label="close"></button>
+            <button type="button" pButton icon="fa-check" (click)="saveMaster()" label="Save"></button>
+        </div>
+    </p-footer>
+</p-dialog>
+
+<p-dialog header="Car Details" [(visible)]="displayDialogDetail" [responsive]="true" showEffect="fade" [modal]="true">
     <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="car">
         <div class="ui-grid-row">
             <div class="ui-grid-col-4"><label for="vin">Vin</label></div>
@@ -25,8 +46,8 @@
     </div>
     <p-footer>
         <div class="ui-dialog-buttonpane ui-helper-clearfix">
-            <button type="button" pButton icon="fa-close" (click)="delete()" label="Delete"></button>
-            <button type="button" pButton icon="fa-check" (click)="save()" label="Save"></button>
+            <button type="button" pButton icon="fa-close" (click)="closeDetail()" label="close"></button>
+            <button type="button" pButton icon="fa-check" (click)="saveDetail()" label="Save"></button>
         </div>
     </p-footer>
 </p-dialog>
