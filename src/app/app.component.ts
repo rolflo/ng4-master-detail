@@ -13,6 +13,8 @@ export class AppComponent implements OnInit {
 
   private displayDialogMaster: boolean = false;
   private displayDialogDetail: boolean = false;
+  private displayEditMaster: boolean = false;
+  private displayEditDetail: boolean = false;
   private car: Car = new Car();
   private masterName: string;
   private selectedData: any[];
@@ -70,6 +72,8 @@ export class AppComponent implements OnInit {
 
   private closeMaster() {
     this.displayDialogMaster = false;
+    this.displayEditMaster = false;
+    this.masterName = "";
   }
 
   private addDetail() {
@@ -84,12 +88,37 @@ export class AppComponent implements OnInit {
 
   private closeDetail() {
     this.displayDialogDetail = false;
+    this.displayEditDetail = false;
+    this.car = new Car();
+  }
+
+  public editMaster(event) {
+    this.displayEditMaster = true;
+    this.masterName = event.master;
+
+  }
+
+  public saveEditMaster() {
+    this.masterDetail.editedMaster(this.masterName);
+    this.displayEditMaster = false;
+    this.masterName = "";
+  }
+
+  private editDetail(event) {
+     this.car = event;
+     this.displayEditDetail = true;
+  }
+
+  public saveEditDetail() {
+    this.displayEditDetail = false;
   }
 
   public selectedDetail(event) {    
-    console.log(event.data);
+    console.log(event);
   }
 
-
+  public editedData(event) {
+    console.log(event);
+  }
 
 }

@@ -12,12 +12,15 @@ export class MasterDetailComponent implements OnInit {
   private selectedItem: MasterDetail[];
   private selectedDetail: any[];
   
-  @Input() masterTitle: string;
+  @Input() masterTitle: string;                          
   @Input() inputData: MasterDetail[];
   @Input() cols: any[];
   @Input() detailSelectMod: string;
 
-  @Output() onSelectDetail = new EventEmitter<any>();;
+  @Output() onSelectDetail = new EventEmitter<any>();
+  @Output() onEditedData = new EventEmitter<any>();
+  @Output() onEditMaster = new EventEmitter<any>();
+  @Output() onEditDetail = new EventEmitter<any>();
   
   constructor() { }
 
@@ -29,7 +32,6 @@ export class MasterDetailComponent implements OnInit {
     let newData:MasterDetail[] = this.inputData.concat({master: value,detail:[]});
     this.inputData = [];
     this.inputData = newData;
-    console.log(this.inputData);
     
   }
 
@@ -37,28 +39,31 @@ export class MasterDetailComponent implements OnInit {
     let newDetail = this.selectedItem['detail'].concat(col);
     this.selectedItem['detail'] = [];
      this.selectedItem['detail'] = newDetail;
-    console.log( this.selectedItem['detail']);
   }
 
   private removeMaster(car) {
-    console.log(car);
     this.inputData = this.inputData.filter(element => { return element != car});
   }
   
   private removeDetail(car) {
-    console.log(car);
     this.selectedItem['detail'] = this.selectedItem['detail'].filter(element => { return element != car});
   }
 
-  public onRowSelect(event) {
-    console.log(event.data);
-    //this.modDetail.emit()
+  public  editMaster() {   
+    this.onEditMaster.emit(this.selectedItem);
+  }
+
+  public editedMaster(masterName) {
+    this.selectedItem['master'] = masterName;
+  }
+
+  public  editDetail(car) {
+    this.onEditDetail.emit(car.data); 
   }
 
   onSelectedDetail() {
-    console.log(this.selectedDetail);
     this.onSelectDetail.emit(this.selectedDetail);
+    this.onEditedData.emit(this.inputData);
   }
-
-  
+ 
 }

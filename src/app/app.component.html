@@ -1,15 +1,18 @@
 <div id="toolbar">
      <button type="button" pButton icon="fa-plus" style="float:left" (click)="addMaster()" label="AddMaster"></button>
-     <button type="button" pButton icon="fa-plus" style="float:left" (click)="addDetail()" label="AddDetail"></button>
+     <button type="button" pButton icon="fa-plus" style="float:left" (click)="addDetail()" label="AddDetail"></button><p>雙擊可修改</p>
 </div>
 <app-master-detail #md
     [masterTitle]="masterTitle"
     [inputData]="inputData"
     [cols]="cols"
     [detailSelectMod]="detailSelectMod"
-    (onSelectedDetail)="selectedDetail($event)"
+    (onSelectDetail)="selectedDetail($event)"
+    (onEditedData)="editedData($event)"
+    (onEditMaster)="editMaster($event)"
+    (onEditDetail)="editDetail($event)"
 ></app-master-detail>
-
+<!--新增Master-->
 <p-dialog header="Add Master" [(visible)]="displayDialogMaster" [responsive]="true" showEffect="fade" [modal]="true">
     <div class="ui-grid ui-grid-responsive ui-fluid">
         <div class="ui-grid-row">
@@ -24,7 +27,7 @@
         </div>
     </p-footer>
 </p-dialog>
-
+<!--新增Detail-->
 <p-dialog header="Car Details" [(visible)]="displayDialogDetail" [responsive]="true" showEffect="fade" [modal]="true">
     <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="car">
         <div class="ui-grid-row">
@@ -48,6 +51,48 @@
         <div class="ui-dialog-buttonpane ui-helper-clearfix">
             <button type="button" pButton icon="fa-close" (click)="closeDetail()" label="close"></button>
             <button type="button" pButton icon="fa-check" (click)="saveDetail()" label="Save"></button>
+        </div>
+    </p-footer>
+</p-dialog>
+<!--編輯Master-->
+<p-dialog header="Edit Master" [(visible)]="displayEditMaster" [responsive]="true" showEffect="fade" [modal]="true">
+    <div class="ui-grid ui-grid-responsive ui-fluid">
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-4"><label for="masterName">MasterName </label></div>
+            <div class="ui-grid-col-8"><input pInputText id="masterName" [(ngModel)]="masterName" /></div>
+        </div>
+    </div>
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+            <button type="button" pButton icon="fa-close" (click)="closeMaster()" label="close"></button>
+            <button type="button" pButton icon="fa-check" (click)="saveEditMaster()" label="Save"></button>
+        </div>
+    </p-footer>
+</p-dialog>
+<!--編輯Detail-->
+<p-dialog header="Car Details" [(visible)]="displayEditDetail" [responsive]="true" showEffect="fade" [modal]="true">
+    <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="car">
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-4"><label for="vin">Vin</label></div>
+            <div class="ui-grid-col-8"><input pInputText id="vin" [(ngModel)]="car.vin" /></div>
+        </div>
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-4"><label for="year">Year</label></div>
+            <div class="ui-grid-col-8"><input pInputText id="year" [(ngModel)]="car.year" /></div>
+        </div>
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-4"><label for="brand">Brand</label></div>
+            <div class="ui-grid-col-8"><input pInputText id="brand" [(ngModel)]="car.brand" /></div>
+        </div>
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-4"><label for="color">Color</label></div>
+            <div class="ui-grid-col-8"><input pInputText id="color" [(ngModel)]="car.color" /></div>
+        </div>
+    </div>
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+            <button type="button" pButton icon="fa-close" (click)="closeDetail()" label="close"></button>
+            <button type="button" pButton icon="fa-check" (click)="saveEditDetail()" label="Save"></button>
         </div>
     </p-footer>
 </p-dialog>
