@@ -61,7 +61,7 @@ export class MasterDetailComponent implements OnInit {
     this.onEditDetail.emit(car.data); 
   }
 
-  onSelectedDetail() {
+  public onSelectedDetail() {
     this.onSelectDetail.emit(this.selectedDetail);
     this.onEditedData.emit(this.inputData);
   }

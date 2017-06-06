@@ -1,6 +1,7 @@
 <div id="toolbar">
      <button type="button" pButton icon="fa-plus" style="float:left" (click)="addMaster()" label="AddMaster"></button>
-     <button type="button" pButton icon="fa-plus" style="float:left" (click)="addDetail()" label="AddDetail"></button><p>雙擊可修改</p>
+     <button type="button" pButton icon="fa-plus" style="float:left" (click)="addDetail()" label="AddDetail"></button>
+     <button type="button" pButton icon="fa-check" style="float:left" (click)="select()" label="Select"></button><p>雙擊可修改</p>
 </div>
 <app-master-detail #md
     [masterTitle]="masterTitle"

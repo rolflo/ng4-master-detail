@@ -121,4 +121,7 @@ export class AppComponent implements OnInit {
     console.log(event);
   }
 
+  public select() {
+    this.masterDetail.onSelectedDetail();
+  }
 }
