@@ -43,6 +43,7 @@ export class MasterDetailComponent implements OnInit {
   
   private removeMaster(car) {
     this.inputData = this.inputData.filter(element => { return element != car});
+    this.selectedItem = [];
   }
   
   private removeDetail(car) {
