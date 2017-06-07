@@ -9,8 +9,8 @@ import { MasterDetail } from "./models/master-detail.model";
 })
 export class MasterDetailComponent implements OnInit {
 
-  private selectedItem: MasterDetail[];
-  private selectedDetail: any[];
+  public selectedItem: MasterDetail[];
+  public selectedDetail: any[];
   
   @Input() masterTitle: string;                          
   @Input() inputData: MasterDetail[];
