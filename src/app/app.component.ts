@@ -60,8 +60,8 @@ export class AppComponent implements OnInit {
 
   }
 
-  private addMaster() {
-    this.car = new Car();
+  private addMaster() {    
+    this.masterName = "";
     this.displayDialogMaster = true;
   }
 
@@ -78,6 +78,7 @@ export class AppComponent implements OnInit {
   }
 
   private addDetail() {
+    this.car = new Car();
     this.displayDialogDetail = true;
   }
 
@@ -116,6 +117,7 @@ export class AppComponent implements OnInit {
 
   public selectedDetail(event) {    
     console.log(event);
+    this.selectedData = event;
   }
 
   public editedData(event) {
