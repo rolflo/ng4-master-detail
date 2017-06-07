@@ -61,6 +61,7 @@ export class AppComponent implements OnInit {
   }
 
   private addMaster() {
+    this.car = new Car();
     this.displayDialogMaster = true;
   }
 
