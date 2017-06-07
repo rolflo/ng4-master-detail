@@ -14,3 +14,10 @@
     width:80%;
     float:right;
 }
+
+/deep/ .ui-datatable-thead tr .ui-state-default {
+    background-color: #008e77;
+    color: #fff;
+    line-height: 1.42857143;
+}
+

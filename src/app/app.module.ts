@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
-import { DataTableModule, SharedModule, DialogModule, ButtonModule } from 'primeng/primeng';
+import { DataTableModule, SharedModule, DialogModule, ButtonModule, InputTextModule } from 'primeng/primeng';
 
 import { AppComponent } from './app.component';
 import { MasterDetailComponent } from './master-detail/master-detail.component';
@@ -22,7 +22,8 @@ import { MasterDetailComponent } from './master-detail/master-detail.component';
     DataTableModule,
     SharedModule,
     ButtonModule,
-    DialogModule
+    DialogModule,
+    InputTextModule
   ],
   providers: [],
   bootstrap: [AppComponent]
