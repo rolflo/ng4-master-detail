@@ -1,6 +1,6 @@
 export class Car {
     vin: string = "";
-    year: number = 0;
+    year: number;
     brand: string = "";
     color: string = "";
     

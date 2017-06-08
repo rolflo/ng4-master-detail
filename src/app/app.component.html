@@ -14,7 +14,10 @@
     (onEditDetail)="editDetail($event)"
 ></app-master-detail>
 <!--新增Master-->
-<p-dialog header="Add Master" [(visible)]="displayDialogMaster" [responsive]="true" showEffect="fade" [modal]="true" width="350">
+<p-dialog [(visible)]="displayDialogMaster" [responsive]="true" showEffect="fade" [modal]="true" width="350">   
+    <p-header>
+        <i class="fa fa-file" style="margin:4px 4px 0 0"></i>Add Master
+    </p-header>
     <div class="ui-grid ui-grid-responsive ui-fluid">
         <div class="ui-grid-row">
             <div class="ui-grid-col-4"><label for="masterName">MasterName</label></div>
@@ -29,7 +32,10 @@
     </p-footer>
 </p-dialog>
 <!--新增Detail-->
-<p-dialog header="Car Details" [(visible)]="displayDialogDetail" [responsive]="true" showEffect="fade" [modal]="true" width="350">
+<p-dialog [(visible)]="displayDialogDetail" [responsive]="true" showEffect="fade" [modal]="true" width="350">
+    <p-header>
+        <i class="fa fa-file" style="margin:4px 4px 0 0"></i>Car Details
+    </p-header>
     <div class="ui-grid ui-grid-responsive ui-fluid">
         <div class="ui-grid-row">
             <div class="ui-grid-col-4"><label for="vin">Vin</label></div>
@@ -56,7 +62,10 @@
     </p-footer>
 </p-dialog>
 <!--編輯Master-->
-<p-dialog header="Edit Master" [(visible)]="displayEditMaster" [responsive]="true" showEffect="fade" [modal]="true" width="350">
+<p-dialog [(visible)]="displayEditMaster" [responsive]="true" showEffect="fade" [modal]="true" width="350">
+    <p-header>
+        <i class="fa fa-file" style="margin:4px 4px 0 0"></i>Edit Master
+    </p-header>
     <div class="ui-grid ui-grid-responsive ui-fluid">
         <div class="ui-grid-row">
             <div class="ui-grid-col-4"><label for="masterName">MasterName</label></div>
@@ -71,7 +80,10 @@
     </p-footer>
 </p-dialog>
 <!--編輯Detail-->
-<p-dialog header="Car Details" [(visible)]="displayEditDetail" [responsive]="true" showEffect="fade" [modal]="true" width="350">
+<p-dialog [(visible)]="displayEditDetail" [responsive]="true" showEffect="fade" [modal]="true" width="350">
+    <p-header>
+        <i class="fa fa-file" style="margin:4px 4px 0 0"></i>Car Details
+    </p-header>
     <div class="ui-grid ui-grid-responsive ui-fluid">
         <div class="ui-grid-row">
             <div class="ui-grid-col-4"><label for="vin">Vin</label></div>

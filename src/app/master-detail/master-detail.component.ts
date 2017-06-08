@@ -41,13 +41,13 @@ export class MasterDetailComponent implements OnInit {
      this.selectedItem['detail'] = newDetail;
   }
   
-  private removeMaster(car) {
-    this.inputData = this.inputData.filter(element => { return element != car});
+  private removeMaster(row) {
+    this.inputData = this.inputData.filter(element => { return element != row});
     this.selectedItem = [];
   }
   
-  private removeDetail(car) {
-    this.selectedItem['detail'] = this.selectedItem['detail'].filter(element => { return element != car});
+  private removeDetail(row) {
+    this.selectedItem['detail'] = this.selectedItem['detail'].filter(element => { return element != row});
   }
   //發送要修改的master event
   public  editMaster() {   
@@ -58,8 +58,8 @@ export class MasterDetailComponent implements OnInit {
     this.selectedItem['master'] = masterName;
   }
   //發送要修改的detail event
-  public  editDetail(car) {
-    this.onEditDetail.emit(car.data); 
+  public  editDetail(row) {
+    this.onEditDetail.emit(row.data); 
   }
   //發送選擇到的明細和修改後的 master-detail
   public onSelectedDetail() {

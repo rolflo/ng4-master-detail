@@ -15,12 +15,11 @@
 </div>
 
 <div id="content">
-  <!-- Detail Table-->
-  
-    <div style="text-align:right;padding:4px 10px;border-bottom: 0 none">    
+  <!-- Detail Table-->  
+  <div style="text-align:right;padding:4px 10px;border-bottom: 0 none">    
       <input #gb type="text" pInputText size="20" >
       <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
-    </div> 
+  </div> 
   <p-dataTable [value]="selectedItem?.detail" [globalFilter]="gb" #dt [(selection)]="selectedDetail" [responsive]="true" (onRowDblclick)="editDetail($event)" >
     <p-column styleClass="col-button" [style]="{'width':'50px'}">
       <ng-template let-car="rowData" pTemplate="body">
