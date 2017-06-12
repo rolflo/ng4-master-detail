@@ -16,6 +16,8 @@ export class MasterDetailComponent implements OnInit {
   @Input() inputData: MasterDetail[];
   @Input() cols: any[];
   @Input() detailSelectMod: string;
+  @Input() sortMod: boolean;
+  @Input() deleteMod: boolean;
 
   @Output() onSelectDetail = new EventEmitter<any>();
   @Output() onEditedData = new EventEmitter<any>();
@@ -27,25 +29,24 @@ export class MasterDetailComponent implements OnInit {
   ngOnInit() {
 
   }
-   
+  //新增一筆主檔 
   public addMaster(value) {
     let newData:MasterDetail[] = this.inputData.concat({master: value,detail:[]});
     this.inputData = [];
-    this.inputData = newData;
-    
+    this.inputData = newData;    
   }
-  
+  //新增一筆明細
   public addDetail(col: any) {
     let newDetail = this.selectedItem['detail'].concat(col);
     this.selectedItem['detail'] = [];
      this.selectedItem['detail'] = newDetail;
   }
-  
+  //移除一筆主檔
   private removeMaster(row) {
     this.inputData = this.inputData.filter(element => { return element != row});
     this.selectedItem = [];
   }
-  
+  //移除一筆明細
   private removeDetail(row) {
     this.selectedItem['detail'] = this.selectedItem['detail'].filter(element => { return element != row});
   }

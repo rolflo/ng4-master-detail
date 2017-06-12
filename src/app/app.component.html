@@ -8,11 +8,13 @@
     [inputData]="inputData"
     [cols]="cols"
     [detailSelectMod]="detailSelectMod"
+    [sortMod]="sortMod"
+    [deleteMod]="deleteMod"
     (onSelectDetail)="selectedDetail($event)"
     (onEditedData)="editedData($event)"
     (onEditMaster)="editMaster($event)"
-    (onEditDetail)="editDetail($event)"
-></app-master-detail>
+    (onEditDetail)="editDetail($event)">
+</app-master-detail>
 <!--新增Master-->
 <p-dialog [(visible)]="displayDialogMaster" [responsive]="true" showEffect="fade" [modal]="true" width="350">   
     <p-header>

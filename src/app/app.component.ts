@@ -23,10 +23,14 @@ export class AppComponent implements OnInit {
   private inputData: MasterDetail[];
   private cols: any[];
   private detailSelectMod: string;
+  private sortMod: boolean;
+  private deleteMod: boolean;
 
   ngOnInit() {
     this.detailSelectMod = 'multiple';
     this.masterTitle = 'Title Name';
+    this.sortMod = true;
+    this.deleteMod = true;
     this.inputData = [{
       master: "item1", detail: [{ vin: 'dsad231ff', year: 2012, brand: 'VW', color: 'Orange' },
       { vin: 'gwregre345', year: 2011, brand: 'Audi', color: '	Black' },
