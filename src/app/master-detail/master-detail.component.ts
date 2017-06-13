@@ -12,6 +12,19 @@ export class MasterDetailComponent implements OnInit {
   public selectedItem: MasterDetail[];
   public selectedDetail: any[];
   
+  /* Master-Detail component
+   * masterTitle: 主檔標題
+   * inputData: 輸入的資料本體
+   * cols: 輸入的明細檔欄位名, 標題名[{field:col1, header: con1Name}, ...]
+   * detailSelectMod: 明細檔單複選 (multiple/single)
+   * sortMod: 明細欄位排序功能
+   * deleteMod: 明細欄位刪除功能
+   * onSelectDetail: 已選擇的明細資料
+   * onEditedData: 修改後的資料本體
+   * onEditMaster: 已選的單筆主檔資料
+   * onEditDetail: 已選的單筆明細資料
+   */
+
   @Input() masterTitle: string;                          
   @Input() inputData: MasterDetail[];
   @Input() cols: any[];
