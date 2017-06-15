@@ -21,12 +21,12 @@
       <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
   </div> 
   <p-dataTable [value]="selectedItem?.detail" [globalFilter]="gb" #dt [(selection)]="selectedDetail" [responsive]="true" (onRowDblclick)="editDetail($event)">
-    <p-column styleClass="col-button" [style]="{'width':'50px'}" *ngIf="deleteMod">
+    <p-column styleClass="col-button" [style]="{'width':'50px'}" *ngIf="isDelete">
       <ng-template let-car="rowData" pTemplate="body">
         <button type="button" pButton (click)="removeDetail(car)" icon="fa-times" class="ui-button-warning"></button>
       </ng-template>
     </p-column>
-    <p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header" [sortable]="sortMod"></p-column>
-    <p-column [style]="{'width':'38px'}" [selectionMode]="detailSelectMod"></p-column>
+    <p-column *ngFor="let col of columns" [field]="col.field" [header]="col.header" [sortable]="sortMode"></p-column>
+    <p-column [style]="{'width':'38px'}" [selectionMode]="detailSelectMode"></p-column>
   </p-dataTable>
 </div>

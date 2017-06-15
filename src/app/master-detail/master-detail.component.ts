@@ -27,10 +27,10 @@ export class MasterDetailComponent implements OnInit {
 
   @Input() masterTitle: string;                          
   @Input() inputData: MasterDetail[];
-  @Input() cols: any[];
-  @Input() detailSelectMod: string;
-  @Input() sortMod: boolean;
-  @Input() deleteMod: boolean;
+  @Input() columns: any[];
+  @Input() detailSelectMode: string;
+  @Input() isSort: boolean;
+  @Input() isDelete: boolean;
 
   @Output() onSelectDetail = new EventEmitter<any>();
   @Output() onEditedData = new EventEmitter<any>();
